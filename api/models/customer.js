@@ -5,9 +5,9 @@ var mongoose = require('mongoose')
   , ObjectId = Schema.ObjectId
   ;
 
-var CustomerSchema = new Schema({
-  company: {type: ObjectId, ref: 'Company'},
-  name: {type: String, required: true},
+var customerSchema = new Schema({
+  company: { type: ObjectId, ref: 'Company' },
+  name: { type: String, required: true },
   contacts: [
     {
       firstName: {type: String, required: true},
@@ -40,12 +40,11 @@ var CustomerSchema = new Schema({
       kind: { type: String, required: true }
     }
   ],
-  website: {type: String },
+  website: {type: String, lowercase: true },
   description: String,
   keywords: [String],
-  active: Boolean
+  active: { type: Boolean, default: true }
 });
 
-var Customer = mongoose.model('Customer', CustomerSchema);
-
+var Customer = mongoose.model('Orders', customerSchema);
 module.exports = Customer;

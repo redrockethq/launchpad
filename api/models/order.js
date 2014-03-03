@@ -2,15 +2,16 @@
 
 var mongoose = require('mongoose')
   , Schema = mongoose.Schema
-  , ObjectId = Schema.ObjectId
+  , ObjectId = Schema.Types.ObjectId
   ;
 
 var OrderSchema = new Schema({
-  customer: {type: ObjectId, ref: 'Customer'},
-  date: {type: Date},
-  dueDate: {type: Date},
-  status: {type: String},
-  transactionId: {type: String},
+  company: {type: ObjectId, ref: 'Company' },
+  customer: {type: ObjectId, ref: 'Orders' },
+  date: { type: Date },
+  dueDate: { type: Date },
+  status: { type: String, lowercase: true },
+  transactionId: { type: String },
   items: [
     {
 
