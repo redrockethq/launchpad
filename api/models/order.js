@@ -7,7 +7,7 @@ var mongoose = require('mongoose')
 
 var OrderSchema = new Schema({
   company: {type: ObjectId, ref: 'Company' },
-  customer: {type: ObjectId, ref: 'Orders' },
+  customer: {type: ObjectId, ref: 'Vendor' },
   date: { type: Date },
   dueDate: { type: Date },
   status: { type: String, lowercase: true },

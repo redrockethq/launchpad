@@ -7,7 +7,7 @@ var mongoose = require('mongoose')
 
 var customerSchema = new Schema({
   company: { type: ObjectId, ref: 'Company' },
-  name: { type: String, required: true },
+  name: { type: String, required: true, index: true },
   contacts: [
     {
       firstName: {type: String, required: true},
@@ -46,5 +46,5 @@ var customerSchema = new Schema({
   active: { type: Boolean, default: true }
 });
 
-var Customer = mongoose.model('Orders', customerSchema);
+var Customer = mongoose.model('Customer', customerSchema);
 module.exports = Customer;
